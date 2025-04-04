@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classification Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .result {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .prediction {
+            font-size: 24px;
+            color: #4CAF50;
+            margin: 10px 0;
+        }
+        .confidence {
+            font-size: 18px;
+            color: #666;
+        }
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 5px;
+        }
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classification Result</h1>
+        <div class="image-container">
+            <img src="{{ image_url }}" alt="Uploaded Image">
+        </div>
+        <div class="result">
+            <div class="prediction">Prediction: {{ prediction }}</div>
+            <div class="confidence">Confidence: {{ confidence|floatformat:2 }}%</div>
+        </div>
+        <a href="{% url 'home' %}" class="back-button">Classify Another Image</a>
+    </div>
+</body>
+</html> 
